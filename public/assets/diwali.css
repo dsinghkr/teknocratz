@@ -1,0 +1,88 @@
+/* assets/diwali.css - Diwali-specific decorations & colors */
+
+/* gradient backdrop + glow animation */
+#site-splash {
+  background: linear-gradient(135deg, #20002c 0%, #40104b 40%, #ff8c00 100%);
+  background-size: 300% 300%;
+  animation: diwaliGradient 10s ease infinite;
+}
+
+@keyframes diwaliGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* inner content styling */
+#site-splash .splash-inner h1 {
+  font-family: 'Poppins', 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.6rem);
+  margin: 0.4rem 0 0.2rem;
+  color: #fffdf0;
+  text-shadow: 0 0 10px rgba(255,220,80,0.6);
+}
+
+#site-splash .splash-inner .brand {
+  display: block;
+  margin-bottom: 8px;
+  max-height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(255,240,200,0.5));
+}
+
+/* diyas row */
+#site-splash .diya-row {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+/* simple diya shape (CSS) */
+.diya {
+  width: 70px;
+  height: 38px;
+  background: linear-gradient(#6b3e1e, #3d1f0e);
+  border-radius: 0 0 50% 50%;
+  position: relative;
+  box-shadow: inset 0 6px 12px rgba(0,0,0,0.35);
+}
+.diya::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 26px;
+  background: radial-gradient(circle at 50% 70%, #fff39a 0%, #ffb74d 50%, transparent 85%);
+  border-radius: 50% 50% 40% 40%;
+  filter: blur(0.2px);
+  animation: diyaFlicker 0.17s infinite alternate;
+}
+
+/* lantern decorations - small top-left & top-right ornaments */
+#site-splash .top-lantern {
+  position: absolute;
+  top: 28px;
+  width: 56px;
+  height: 78px;
+  background: radial-gradient(circle at 30% 20%, #ffd54f, #ff8a65);
+  border-radius: 14px;
+  box-shadow: 0 0 22px rgba(255,165,0,0.25);
+  z-index: 2;
+}
+#site-splash .top-lantern.left { left: 32px; transform-origin: top center; animation: swing 2.6s ease-in-out infinite; }
+#site-splash .top-lantern.right { right: 32px; transform-origin: top center; animation: swing 2.6s ease-in-out infinite; animation-delay: 0.3s; }
+
+@keyframes swing { from { transform: rotate(4deg);} to { transform: rotate(-4deg);} }
+@keyframes diyaFlicker { from { opacity: 1; transform: translateX(-50%) scale(1);} to { opacity: 0.7; transform: translateX(-50%) scale(1.08);} }
+
+/* small subtitle */
+#site-splash .splash-inner p {
+  margin-top: 8px;
+  color: rgba(255,245,210,0.9);
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+}
+
+/* fireworks particles (canvas sits below inner content) - no CSS required */

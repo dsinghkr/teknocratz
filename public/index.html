@@ -1,12 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Tecknocratz</title>
-    <link rel="icon" href="favicon.ico" />
-</head>
-<body>
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- reusable base + theme -->
+    <link rel="stylesheet" href="/assets/splash.css" />
+    <link rel="stylesheet" href="/assets/diwali.css" />
+  </head>
+  <body>
     <div id="root"></div>
-</body>
+
+    <!-- Splash overlay -->
+    <div id="site-splash" role="dialog" aria-label="Festival greeting" aria-modal="true">
+      <canvas class="splash-canvas"></canvas>
+
+      <!-- decorative lanterns (theme) -->
+      <div class="top-lantern left" aria-hidden="true"></div>
+      <div class="top-lantern right" aria-hidden="true"></div>
+
+      <div class="splash-inner" role="document">
+        <!-- optional logo: update path if different -->
+        <img src="/src/logo.png" alt="Tecknocratz" class="brand" />
+
+        <h1>✨ Happy Diwali from Tecknocratz! ✨</h1>
+        <p>Wishing you a year full of light, joy and success.</p>
+
+        <div class="diya-row" aria-hidden="true">
+          <div class="diya"></div>
+          <div class="diya"></div>
+          <div class="diya"></div>
+        </div>
+      </div>
+
+      <!-- sound file: replace with your own small clip if you prefer -->
+      <audio class="splash-audio" src="/assets/diwali-sound.mp3" preload="auto"></audio>
+    </div>
+
+    <script src="/assets/splash.js" defer></script>
+  </body>
 </html>
